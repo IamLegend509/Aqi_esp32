@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Spaced, readable wiring diagram for AQI sensors -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600" height="1200"
+     viewBox="0 0 1600 1200">
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      .board   { fill:#fbfbfc; stroke:#222; stroke-width:2 }
+      .chip    { fill:#e8eef8; stroke:#003366; stroke-width:2 }
+      .sensor  { fill:#ffffff; stroke:#666; stroke-width:1.8 }
+      .pin     { font:18px monospace; fill:#111 }
+      .label   { font:22px sans-serif; fill:#111; font-weight:600 }
+      .note    { font:16px italic; fill:#333 }
+      .wire    { stroke:#cc0000; stroke-width:3 }
+      .gndwire { stroke:#222; stroke-width:3 }
+      .v5wire  { stroke:#ff8c00; stroke-width:3 }
+      .v3wire  { stroke:#0066cc; stroke-width:3 }
+    ]]></style>
+  </defs>
+
+  <!-- Title -->
+  <text x="30" y="40" class="label">AQI Sensors Wiring Diagram — ESP32 WROOM-32E</text>
+
+  <!-- ESP32 module (left) -->
+  <rect x="40" y="80" width="360" height="580" class="chip" rx="10"/>
+  <text x="70" y="120" class="label">ESP32 WROOM-32E</text>
+
+  <!-- Power rails -->
+  <text x="70" y="170" class="pin">3.3V</text>
+  <line x1="170" y1="165" x2="420" y2="165" class="v3wire" />
+
+  <text x="70" y="210" class="pin">GND</text>
+  <line x1="170" y1="205" x2="420" y2="205" class="gndwire" />
+
+  <!-- I2C pins -->
+  <text x="70" y="270" class="pin">GPIO21  — SDA</text>
+  <line x1="220" y1="265" x2="480" y2="265" class="wire" />
+
+  <text x="70" y="320" class="pin">GPIO22  — SCL</text>
+  <line x1="220" y1="315" x2="480" y2="315" class="wire" />
+
+  <!-- DHT22 pin -->
+  <text x="70" y="380" class="pin">GPIO14  — DHT22 DATA</text>
+  <line x1="260" y1="375" x2="520" y2="375" stroke="#cc00cc" stroke-width="3" />
+
+  <!-- ADC pins for sensors -->
+  <text x="70" y="440" class="pin">GPIO33 (ADC1_CH5)</text>
+  <line x1="260" y1="435" x2="620" y2="435" class="wire" />
+
+  <text x="70" y="500" class="pin">GPIO32 — DUST LED ctrl</text>
+  <line x1="300" y1="495" x2="620" y2="495" class="wire" />
+
+  <text x="70" y="560" class="pin">GPIO34 (ADC1_CH6)</text>
+  <line x1="260" y1="555" x2="620" y2="555" class="wire" />
+
+  <text x="70" y="620" class="pin">GPIO35 (ADC1_CH7)</text>
+  <line x1="260" y1="615" x2="620" y2="615" class="wire" />
+
+  <!-- External 5V rail -->
+  <text x="70" y="680" class="pin">5V (external)</text>
+  <line x1="200" y1="675" x2="620" y2="675" class="v5wire" />
+
+  <!-- Sensors area (right) with more spacing -->
+
+  <!-- BMP280 (I2C) -->
+  <rect x="680" y="80" width="420" height="150" class="sensor" rx="8"/>
+  <text x="700" y="118" class="label">BMP280 (I2C)</text>
+  <text x="700" y="146" class="pin">VCC → 3.3V</text>
+  <text x="700" y="174" class="pin">GND → GND</text>
+  <text x="700" y="202" class="pin">SDA → GPIO21 (pull-up 4.7k to 3.3V)</text>
+  <text x="700" y="230" class="pin">SCL → GPIO22 (pull-up 4.7k to 3.3V)</text>
+
+  <line x1="480" y1="265" x2="680" y2="200" stroke="#0066cc" stroke-width="3" />
+  <line x1="480" y1="315" x2="680" y2="220" stroke="#0066cc" stroke-width="3" />
+  <line x1="420" y1="165" x2="680" y2="170" class="v3wire" />
+  <line x1="420" y1="205" x2="680" y2="180" class="gndwire" />
+
+  <!-- DHT22 -->
+  <rect x="680" y="270" width="360" height="130" class="sensor" rx="8"/>
+  <text x="700" y="304" class="label">DHT22 / AM2302</text>
+  <text x="700" y="336" class="pin">VCC → 3.3V</text>
+  <text x="700" y="364" class="pin">GND → GND</text>
+  <text x="700" y="392" class="pin">DATA → GPIO14 (4.7k pull-up to 3.3V)</text>
+
+  <line x1="520" y1="375" x2="680" y2="388" stroke="#cc00cc" stroke-width="3" />
+  <line x1="420" y1="165" x2="680" y2="340" class="v3wire" />
+  <line x1="420" y1="205" x2="680" y2="362" class="gndwire" />
+
+  <!-- MQ135 -->
+  <rect x="1120" y="80" width="420" height="180" class="sensor" rx="8"/>
+  <text x="1140" y="118" class="label">MQ135 (Analog Gas Sensor)</text>
+  <text x="1140" y="156" class="pin">VCC → 5V</text>
+  <text x="1140" y="186" class="pin">GND → GND</text>
+  <text x="1140" y="216" class="pin">AOUT → Divider → GPIO34 (ADC1_CH6)</text>
+  <text x="1140" y="246" class="note">Divider example: 10k (top), 20k (bottom). Vaout = Vgpio × 1.5</text>
+
+  <line x1="620" y1="555" x2="1120" y2="216" stroke="#cc0000" stroke-width="3" />
+  <line x1="620" y1="675" x2="1120" y2="156" class="v5wire" />
+  <line x1="420" y1="205" x2="1120" y2="186" class="gndwire" />
+
+  <!-- MQ7 -->
+  <rect x="1120" y="300" width="420" height="190" class="sensor" rx="8"/>
+  <text x="1140" y="338" class="label">MQ7 (Analog CO Sensor)</text>
+  <text x="1140" y="376" class="pin">VCC → 5V (heater)</text>
+  <text x="1140" y="406" class="pin">GND → GND</text>
+  <text x="1140" y="436" class="pin">AOUT → Divider → GPIO35 (ADC1_CH7)</text>
+  <text x="1140" y="466" class="note">Heater switching required for accurate CO — MOSFET + regulator</text>
+
+  <line x1="620" y1="615" x2="1120" y2="436" stroke="#cc0000" stroke-width="3" />
+  <line x1="620" y1="675" x2="1120" y2="376" class="v5wire" />
+  <line x1="420" y1="205" x2="1120" y2="406" class="gndwire" />
+
+  <!-- GP2Y1010 Dust Sensor -->
+  <rect x="680" y="470" width="520" height="260" class="sensor" rx="8"/>
+  <text x="700" y="506" class="label">GP2Y1010 AU0F (Dust Sensor)</text>
+  <text x="700" y="542" class="pin">Pin6 (VCC) → 5V</text>
+  <text x="700" y="576" class="pin">Pin2, Pin4 (GND) → GND</text>
+  <text x="700" y="610" class="pin">Pin1 V-LED → 5V via 150Ω resistor</text>
+  <text x="700" y="644" class="pin">Also: 220µF cap near sensor V-LED to GND</text>
+  <text x="700" y="678" class="pin">Pin3 LED control → GPIO32 (drive LOW to pulse)</text>
+  <text x="700" y="712" class="pin">Pin5 Vo → Divider → GPIO33 (ADC1_CH5)</text>
+  <text x="700" y="744" class="note">Divider example: 10k top, 20k bottom (DIV=1.5). Timing: pulse 280µs, sample 40µs.</text>
+
+  <line x1="620" y1="495" x2="700" y2="576" stroke="#cc0000" stroke-width="3" />
+  <line x1="620" y1="495" x2="700" y2="542" class="gndwire" />
+  <line x1="620" y1="495" x2="700" y2="610" class="v5wire" />
+  <line x1="620" y1="495" x2="760" y2="712" stroke="#cc0000" stroke-width="3" />
+
+  <!-- Legend / BOM box at bottom -->
+  <rect x="40" y="760" width="1500" height="360" fill="#fff9e6" stroke="#cc9900" rx="8" />
+  <text x="60" y="800" class="label">Legend &amp; BOM</text>
+
+  <text x="60" y="840" class="pin">• Resistors: 10k (divider top), 20k (divider bottom), 150Ω (dust LED). Use 1% for precision.</text>
+  <text x="60" y="880" class="pin">• Pull-ups: I2C SDA/SCL 4.7k to 3.3V; DHT22 DATA 4.7k to 3.3V.</text>
+  <text x="60" y="920" class="pin">• Capacitors: 0.1µF decoupling at each sensor VCC; GP2Y1010: 220µF near V-LED.</text>
+  <text x="60" y="960" class="pin">• ADC: Use ADC1 channels only (GPIO33 CH5, GPIO34 CH6, GPIO35 CH7). Avoid ADC2 with Wi‑Fi.</text>
+  <text x="60" y="1000" class="pin">• Power: Common GND. 5V for MQ7/MQ135/GP2Y1010; 3.3V for BMP280, DHT22, ESP32.</text>
+  <text x="60" y="1040" class="note">Notes: Keep analog traces short, star ground, place decoupling caps close, include test points at ADC nodes before/after dividers.</text>
+
+  <!-- Footer -->
+  <text x="60" y="1100" class="note">Generated for project: aqi_esp32 — wiring-diagram.svg</text>
+
+</svg>
