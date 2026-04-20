@@ -1,0 +1,2 @@
+source /home/suchit/aqi_esp32/build/gdbinit/symbols
+source /home/suchit/aqi_esp32/build/gdbinit/connect
