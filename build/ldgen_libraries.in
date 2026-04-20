@@ -160,3 +160,9 @@ $<TARGET_FILE:idf::spiffs>
 $<TARGET_FILE:idf::wifi_provisioning>
 $<TARGET_FILE:__idf_json>
 $<TARGET_FILE:idf::main>
+$<TARGET_FILE:idf::adc>
+$<TARGET_FILE:idf::bmp280>
+$<TARGET_FILE:idf::dht22>
+$<TARGET_FILE:idf::mq135>
+$<TARGET_FILE:__idf_adc>
+$<TARGET_FILE:idf::mq7>

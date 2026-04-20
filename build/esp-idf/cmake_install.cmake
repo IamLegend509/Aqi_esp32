@@ -567,3 +567,28 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/suchit/aqi_esp32/build/esp-idf/main/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/suchit/aqi_esp32/build/esp-idf/adc/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/suchit/aqi_esp32/build/esp-idf/bmp280/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/suchit/aqi_esp32/build/esp-idf/dht22/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/suchit/aqi_esp32/build/esp-idf/mq135/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/suchit/aqi_esp32/build/esp-idf/mq7/cmake_install.cmake")
+endif()
+

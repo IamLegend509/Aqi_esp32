@@ -27,6 +27,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_adc/adc_oneshot.h"
+#include "adc_shared.h"
 #include "esp_adc/adc_cali.h"
 #include "esp_adc/adc_cali_scheme.h"
 
@@ -60,7 +61,6 @@ static const gas_curve_t SMOKE   = {  40.000f, -3.150f };  // indicative only
 #define DIVIDER_FACTOR  1.5f
 
 /* ─── ADC handles ────────────────────────────────────────────────────────── */
-static adc_oneshot_unit_handle_t adc_handle;
 static adc_cali_handle_t         cali_handle = NULL;
 static bool                      cali_ok     = false;
 
@@ -69,12 +69,6 @@ static bool                      cali_ok     = false;
  * ════════════════════════════════════════════════════════════════════════════ */
 static void mq135_adc_init(void)
 {
-    adc_oneshot_unit_init_cfg_t unit_cfg = {
-        .unit_id  = ADC_UNIT_1,
-        .ulp_mode = ADC_ULP_MODE_DISABLE,
-    };
-    ESP_ERROR_CHECK(adc_oneshot_new_unit(&unit_cfg, &adc_handle));
-
     adc_oneshot_chan_cfg_t chan_cfg = {
         .atten    = MQ135_ADC_ATTEN,
         .bitwidth = MQ135_ADC_BITWIDTH,
@@ -202,7 +196,7 @@ void mq135_task(void *arg)
 /* ════════════════════════════════════════════════════════════════════════════
  * APP MAIN
  * ════════════════════════════════════════════════════════════════════════════ */
-void mq135_start(void *arg){
+void mq135_start(void){
     printf("\n\n");
     printf("================================\n");
     printf("  MQ135 Air Quality Sensor Test \n");

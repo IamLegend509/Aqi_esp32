@@ -1,0 +1,1077 @@
+Command: /home/suchit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/suchit/.espressif/v5.5.4/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/suchit/aqi_esp32/build/aqi_esp32.elf /home/suchit/aqi_esp32/build/bootloader/bootloader.elf -m '/home/suchit/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/suchit/.espressif/v5.5.4/esp-idf/tools/idf.py'
+0x76 or 0x77
+[BMP280]  Last chip ID read: 0x00
+[BMP280]  Check:
+          1. VCC → 3.3V (not 5V)
+          2. SDA → GPIO21, SCL → GPIO�ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr 20 2026 23:19:32[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bc8ch ( 48268) map[0m
+[0;32mI (103) esp_image: segment 1: paddr=0001bcb4 vaddr=3ffb0000 size=02874h ( 10356) load[0m
+[0;32mI (107) esp_image: segment 2: paddr=0001e530 vaddr=40080000 size=01ae8h (  6888) load[0m
+[0;32mI (110) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=14bcch ( 84940) map[0m
+[0;32mI (143) esp_image: segment 4: paddr=00034bf4 vaddr=40081ae8 size=0c8b0h ( 51376) load[0m
+[0;32mI (163) esp_image: segment 5: paddr=000414ac vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (171) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (171) boot: Disabling RNG early entropy source...[0m
+[0;32mI (181) cpu_start: Multicore app[0m
+[0;32mI (190) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (190) cpu_start: Pro cpu start user code[0m
+[0;32mI (190) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (192) app_init: Application information:[0m
+[0;32mI (196) app_init: Project name:     aqi_esp32[0m
+[0;32mI (200) app_init: App version:      be7c9a7-dirty[0m
+[0;32mI (204) app_init: Compile time:     Apr 20 2026 23:10:03[0m
+[0;32mI (209) app_init: ELF file SHA256:  90afd4323...[0m
+[0;32mI (214) app_init: ESP-IDF:          v5.5.4[0m
+[0;32mI (217) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (221) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (225) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (229) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (236) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (240) heap_init: At 3FFB3198 len 0002CE68 (179 KiB): DRAM[0m
+[0;32mI (246) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (251) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (257) heap_init: At 4008E398 len 00011C68 (71 KiB): IRAM[0m
+[0;32mI (263) spi_flash: detected chip: generic[0m
+[0;32mI (266) spi_flash: flash io: dio[0m
+[0;33mW (268) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (281) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (291) main_task: Started on CPU0[0m
+[0;32mI (301) main_task: Calling app_main()[0m
+
+=== AQI System Starting ===
+
+
+
+================================
+  BMP280 Init — ESP32 WROOM-32E
+================================
+
+
+[I2C SCAN] Scanning 0x01 to 0x7F...
+[I2C SCAN] Nothing found — check wiring, VCC, and SDA/SCL pins
+[I2C SCAN] Done. 0 device(s) found.
+
+[BMP280]  NOT found at 0x76 or 0x77
+[BMP280]  Last chip ID read: 0x00
+[BMP280]  Check:
+          1. VCC → 3.3V (not 5V)
+          2. SDA → GPIO21, SCL → GPIO22
+          3. SDO → GND (for 0x76) or 3.3V (for 0x77)
+          4. No solder bridges on breakout board
+
+[FATAL] BMP280 not found. Fix wiring.
+[MQ7]   GPIO35 = ADC1_CH7
+[MQ7]   RL = 10 kΩ
+[MQ7]   R0 = 27.5 kΩ (uncalibrated)
+
+[MQ7]   ADC cal: Line Fitting
+[MQ7]   Init complete
+
+
+
+================================
+  MQ135 Air Quality Sensor Test 
+================================
+
+[MQ135]  ADC pin : GPIO34 (ADC1_CH6)
+
+[MQ135]  ADC cal: Line Fitting
+
+[MQ135] ADC init complete
+
+
+
+================================
+  DHT22 / AM2302 Sensor Init   
+================================
+
+
+[DHT22]  Starting readings...
+[DHT22]  GPIO14, 4.7kΩ pull-up required on data line.
+
+
+========== Reading #1 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+[MQ7]   Starting raw readings...
+[MQ7]   Sensor needs 5 min warmup for stable Rs.
+[MQ7]   Rs/R0 NOT valid without heater switching.
+
+
+========== Reading #1 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+
+========== Reading #1 ==========
+=================================
+
+[MQ135]  Starting readings...
+[MQ135]  RL  = 1 kΩ — change RL_KOHM if your board differs
+[0;32mI (1421) main_task: Returned from app_main()[0m
+[MQ135]  R0  = 1.27 kΩ — uncalibrated placeholder
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ135]  Warmup needed: 5 minutes minimum
+
+[MQ7]   GPIO V   : 3.145 V
+
+========== Reading #1 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ135]  Rs       : 0.06 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 2s / 300s
+[MQ135]  Rs/R0    : 0.0472
+[MQ7]   !! No heater switching — values unreliable !!
+─────────────────────────────────
+=================================
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 2s / 300s
+=================================
+
+========== Reading #2 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #2 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 4s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #2 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 4s / 300s
+=================================
+
+========== Reading #2 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+=================================
+
+========== Reading #3 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #3 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 6s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #3 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 6s / 300s
+=================================
+
+========== Reading #4 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #4 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 8s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #4 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 8s / 300s
+=================================
+
+========== Reading #3 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+=================================
+
+========== Reading #5 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #5 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 10s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #5 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 10s / 300s
+=================================
+
+========== Reading #6 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #6 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 12s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #6 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 12s / 300s
+=================================
+
+========== Reading #4 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+=================================
+
+========== Reading #7 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #7 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 14s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #7 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 14s / 300s
+=================================
+
+========== Reading #8 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #5 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #8 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 16s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #8 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 16s / 300s
+=================================
+
+========== Reading #9 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #9 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 18s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #9 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 18s / 300s
+=================================
+
+========== Reading #6 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #10 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #10 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 20s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #10 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 20s / 300s
+=================================
+
+========== Reading #11 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #11 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 22s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #11 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 22s / 300s
+=================================
+
+========== Reading #7 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #12 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #12 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 24s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #12 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 24s / 300s
+=================================
+
+========== Reading #13 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #13 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 26s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #13 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 26s / 300s
+=================================
+
+========== Reading #8 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #14 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #14 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 28s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #14 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 28s / 300s
+=================================
+
+========== Reading #15 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #9 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #15 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 30s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #15 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 30s / 300s
+=================================
+
+========== Reading #16 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #16 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 32s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #16 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 32s / 300s
+=================================
+
+========== Reading #10 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #17 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #17 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 34s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #17 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 34s / 300s
+=================================
+
+========== Reading #18 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #18 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 36s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #18 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 36s / 300s
+=================================
+
+========== Reading #11 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #19 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #19 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 38s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #19 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 38s / 300s
+=================================
+
+========== Reading #20 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #20 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 40s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #20 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 40s / 300s
+=================================
+
+========== Reading #12 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #21 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #21 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 42s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #21 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 42s / 300s
+=================================
+
+========== Reading #22 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #13 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #22 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 44s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #22 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 44s / 300s
+=================================
+
+========== Reading #23 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #23 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 46s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #23 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 46s / 300s
+=================================
+
+========== Reading #14 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #24 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #24 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 48s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #24 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 48s / 300s
+=================================
+
+========== Reading #25 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #25 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 50s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #25 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 50s / 300s
+=================================
+
+========== Reading #15 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #26 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #26 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 52s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #26 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 52s / 300s
+=================================
+
+========== Reading #27 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #27 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 54s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #16 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #27 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 54s / 300s
+=================================
+
+========== Reading #28 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #28 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 56s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #28 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 56s / 300s
+=================================
+
+========== Reading #29 ==========
+[BMP280]  ERROR — read failed
+=================================
+
+========== Reading #17 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+[DHT22]  5 consecutive errors — check wiring
+=================================
+
+========== Reading #29 ==========
+[MQ7]   Raw ADC  : 3902 / 4095
+[MQ7]   GPIO V   : 3.145 V
+[MQ7]   AOUT V   : 4.717 V
+[MQ7]   Rs       : 0.60 kΩ
+[MQ7]   Rs/R0    : 0.0218
+[MQ7]   Warmup   : 58s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #29 ==========
+[MQ135]  Raw ADC  : 3902 / 4095
+[MQ135]  GPIO V   : 3.145 V
+[MQ135]  AOUT V   : 4.717 V
+[MQ135]  Rs       : 0.06 kΩ
+[MQ135]  Rs/R0    : 0.0472
+─────────────────────────────────
+[MQ135]  CO2      : 549256.9 ppm
+[MQ135]  CO       : 100995568.0 ppm
+[MQ135]  NH3      : 196123.4 ppm
+[MQ135]  Alcohol  : 1276986.5 ppm
+[MQ135]  Benzene  : 1020695.6 ppm
+[MQ135]  Smoke    : 603288.2 ppm
+[MQ135]  Warmup   : 58s / 300s
+=================================
