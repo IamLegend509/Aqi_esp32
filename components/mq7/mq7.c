@@ -52,6 +52,13 @@
 static adc_cali_handle_t         mq7_cali_handle = NULL;
 static bool                      mq7_cali_ok     = false;
 
+int   mq7_last_raw = 0;
+float mq7_last_gpio_v = 0.0f;
+float mq7_last_aout_v = 0.0f;
+float mq7_last_rs = 0.0f;
+float mq7_last_ratio = 0.0f;
+int   mq7_warmup_s = 0;
+
 /* ════════════════════════════════════════════════════════════════════════════
  * ADC INIT
  * ════════════════════════════════════════════════════════════════════════════ */
@@ -145,6 +152,14 @@ void mq7_task(void *arg)
                    : (MQ7_RL_KOHM * (5.0f - vaout) / vaout);
 
         float rs_r0 = rs / MQ7_R0_KOHM;
+        int warmup_s = count * 2;
+
+        mq7_last_raw = raw;
+        mq7_last_gpio_v = vgpio;
+        mq7_last_aout_v = vaout;
+        mq7_last_rs = rs;
+        mq7_last_ratio = rs_r0;
+        mq7_warmup_s = warmup_s;
 
         printf("\n========== Reading #%d ==========\n", count);
         printf("[MQ7]   Raw ADC  : %d / 4095\n",  raw);
@@ -154,7 +169,7 @@ void mq7_task(void *arg)
         printf("[MQ7]   Rs/R0    : %.4f\n",          rs_r0);
 
         if (count <= 150)
-            printf("[MQ7]   Warmup   : %ds / 300s\n", count * 2);
+            printf("[MQ7]   Warmup   : %ds / 300s\n", warmup_s);
 
         printf("[MQ7]   !! No heater switching — values unreliable !!\n");
         printf("=================================\n");

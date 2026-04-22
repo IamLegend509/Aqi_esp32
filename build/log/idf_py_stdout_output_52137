@@ -1,0 +1,270 @@
+Command: /home/suchit/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/suchit/.espressif/v5.5.4/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/suchit/aqi_esp32/build/aqi_esp32.elf /home/suchit/aqi_esp32/build/bootloader/bootloader.elf -m '/home/suchit/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/suchit/.espressif/v5.5.4/esp-idf/tools/idf.py'
+[0;32mI (361) esp_image: segment 4: paddr=000d1fa8 vaddr=4008ac00 size=0e900h ( 59648) load[0m
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6280
+load:0x40078000,len:15864
+load:0x40080400,len:3920
+entry 0x40080644
+[0;32mI (27) boot: ESP-IDF v5.5.4 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Apr 20 2026 23:19:32[0m
+[0;32mI (28) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v3.1[0m
+[0;32mI (32) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (35) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (42) boot: Enabling RNG early entropy source...[0m
+[0;32mI (47) boot: Partition Table:[0m
+[0;32mI (49) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (62) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (69) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (75) boot: End of partition table[0m
+[0;32mI (79) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=21050h (135248) map[0m
+[0;32mI (132) esp_image: segment 1: paddr=00031078 vaddr=3ffb0000 size=04398h ( 17304) load[0m
+[0;32mI (139) esp_image: segment 2: paddr=00035418 vaddr=40080000 size=0ac00h ( 44032) load[0m
+[0;32mI (156) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=91f80h (597888) map[0m
+[0;32mI (361) esp_image: segment 4: paddr=000d1fa8 vaddr=4008ac00 size=0e900h ( 59648) load[0m
+[0;32mI (384) esp_image: segment 5: paddr=000e08b0 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (397) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (397) boot: Disabling RNG early entropy source...[0m
+[0;32mI (408) cpu_start: Multicore app[0m
+[0;32mI (416) cpu_start: GPIO 3 and 1 are used as console UART I/O pins[0m
+[0;32mI (416) cpu_start: Pro cpu start user code[0m
+[0;32mI (416) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (418) app_init: Application information:[0m
+[0;32mI (422) app_init: Project name:     aqi_esp32[0m
+[0;32mI (426) app_init: App version:      4cacf41-dirty[0m
+[0;32mI (430) app_init: Compile time:     Apr 22 2026 10:37:52[0m
+[0;32mI (435) app_init: ELF file SHA256:  f8af099f5...[0m
+[0;32mI (440) app_init: ESP-IDF:          v5.5.4[0m
+[0;32mI (443) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (447) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (451) efuse_init: Chip rev:         v3.1[0m
+[0;32mI (455) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (462) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (467) heap_init: At 3FFB8810 len 000277F0 (157 KiB): DRAM[0m
+[0;32mI (472) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (477) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (483) heap_init: At 40099500 len 00006B00 (26 KiB): IRAM[0m
+[0;32mI (489) spi_flash: detected chip: generic[0m
+[0;32mI (492) spi_flash: flash io: dio[0m
+[0;33mW (495) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (507) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (518) main_task: Started on CPU0[0m
+[0;32mI (528) main_task: Calling app_main()[0m
+
+=== AQI System Starting ===
+
+
+
+================================
+  BMP280 Init — ESP32 WROOM-32E
+================================
+
+
+[I2C SCAN] Scanning 0x01 to 0x7F...
+[I2C SCAN] Nothing found — check wiring, VCC, and SDA/SCL pins
+[I2C SCAN] Done. 0 device(s) found.
+
+[BMP280]  NOT found at 0x76 or 0x77
+[BMP280]  Last chip ID read: 0x00
+[BMP280]  Check:
+          1. VCC → 3.3V (not 5V)
+          2. SDA → GPIO21, SCL → GPIO22
+          3. SDO → GND (for 0x76) or 3.3V (for 0x77)
+          4. No solder bridges on breakout board
+
+[BMP280] Physical sensor unavailable — using DHT22 temperature,
+[BMP280] Mumbai first-floor altitude, and +/-5% synthetic pressure.
+[MQ7]   GPIO35 = ADC1_CH7
+[MQ7]   RL = 10 kΩ
+[MQ7]   R0 = 27.5 kΩ (uncalibrated)
+
+[MQ7]   ADC cal: Line Fitting
+[MQ7]   Init complete
+
+
+
+================================
+  MQ135 Air Quality Sensor Test 
+================================
+
+[MQ135]  ADC pin : GPIO34 (ADC1_CH6)
+
+[MQ135]  ADC cal: Line Fitting
+
+[MQ135] ADC init complete
+
+
+
+================================
+  DHT22 / AM2302 Sensor Init   
+================================
+
+[0;32mI (1668) wifi:wifi driver task: 3ffc0c40, prio:23, stack:6656, core=0[0m
+[0;32mI (1678) wifi:wifi firmware version: 0947e8b[0m
+[0;32mI (1688) wifi:wifi certification version: v7.0[0m
+[0;32mI (1688) wifi:config NVS flash: enabled[0m
+[0;32mI (1688) wifi:config nano formatting: disabled[0m
+[0;32mI (1688) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1698) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1698) wifi:Init management short buffer num: 32[0m
+[0;32mI (1698) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (1708) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1708) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1718) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1718) wifi_init: rx ba win: 6[0m
+[0;32mI (1718) wifi_init: accept mbox: 6[0m
+[0;32mI (1728) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1728) wifi_init: udp mbox: 6[0m
+[0;32mI (1728) wifi_init: tcp mbox: 6[0m
+[0;32mI (1728) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1738) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1738) wifi_init: tcp mss: 1440[0m
+[0;32mI (1738) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1748) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (1748) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (1758) phy_init: phy_version 4863,a3a4459,Oct 28 2025,14:30:06[0m
+[0;32mI (1838) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(0)[0m
+[0;32mI (1858) wifi:mode : sta (a0:a3:b3:90:7d:f0)[0m
+[0;32mI (1858) wifi:enable tsf[0m
+[0;32mI (1868) wifi:new:<11,2>, old:<1,0>, ap:<255,255>, sta:<11,2>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (1868) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (1878) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (1898) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (1908) wifi:connected with delta_virus_2.4G, aid = 1, channel 11, 40D, bssid = 50:2b:73:89:ee:21[0m
+[0;32mI (1908) wifi:security: WPA2-PSK, phy: bgn, rssi: -51, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (1918) wifi:pm start, type: 1[0m
+
+[0;32mI (1918) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (1968) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (5018) esp_netif_handlers: sta ip: 192.168.0.231, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (5018) WIFI: Connected! IP: 192.168.0.231[0m
+[0;32mI (5018) WS: Server started — open http://<ESP32-IP> in browser[0m
+
+[DHT22]  Starting readings...
+[DHT22]  GPIO14, 4.7kΩ pull-up required on data line.
+
+
+========== Reading #1 ==========
+[BMP280]  Temp     : 0.00 C
+[BMP280]  Pressure : 1029.48 hPa
+[BMP280]  Altitude : 17.0 m
+=================================
+
+========== Reading #1 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+=================================
+
+[MQ7]   Starting raw readings...
+
+[MQ135]  Starting readings...
+[MQ135]  RL  = 1 kΩ — change RL_KOHM if your board differs
+[MQ7]   Sensor needs 5 min warmup for stable Rs.
+[MQ135]  R0  = 1.27 kΩ — uncalibrated placeholder
+[MQ7]   Rs/R0 NOT valid without heater switching.
+
+[MQ135]  Warmup needed: minutes minimum
+
+
+========== Reading #1 =========
+
+========== Reading #1 ==========
+[MQ7]   Raw ADC  : 176 / 4095
+[MQ135]  Raw ADC  : 176 / 4095
+[MQ135]  GPIO V   : 0.142 V
+[MQ7]   GPIO V   : 0.142 V
+[MQ135]  AOUT V   : 0.213 V
+[MQ7]   AOUT V   : 0.213 V
+[MQ7]   Rs       : 224.74 kΩ
+[MQ135]  Rs       : 22.47 kΩ
+[MQ135]  Rs/R0    : 17.6962
+[MQ7]   Rs/R0    : 8.1724
+─────────────────────────────────
+[MQ135]  CO2      : 0.0 ppm
+[MQ7]   Warmup   : 2s / 300s
+[MQ135]  CO       : 0.0 ppm
+[MQ7]   !! No heater switching — values unreliable !!
+[MQ135]  NH3      : 0.1 ppm
+=================================
+[MQ135]  Alcohol  : 0.0 ppm
+[MQ135]  Benzene  : 0.0 ppm
+[MQ135]  Smoke    : 0.0 ppm
+[MQ135]  Warmup   : 2s / 300s
+=================================
+[0;32mI (5058) main_task: Returned from app_main()[0m
+[0;32mI (5658) wifi:<ba-add>idx:0 (ifx:0, 50:2b:73:89:ee:21), tid:7, ssn:2, winSize:64[0m
+[0;32mI (5668) wifi:<ba-add>idx:1 (ifx:0, 50:2b:73:89:ee:21), tid:5, ssn:0, winSize:64[0m
+
+========== Reading #2 ==========
+[BMP280]  Temp     : 0.00 C
+[BMP280]  Pressure : 1045.29 hPa
+[BMP280]  Altitude : 17.0 m
+=================================
+
+========== Reading #2 ==========
+[MQ7]   Raw ADC  : 176 / 4095
+[MQ7]   GPIO V   : 0.142 V
+[MQ7]   AOUT V   : 0.213 V
+[MQ7]   Rs       : 224.74 kΩ
+[MQ7]   Rs/R0    : 8.1724
+[MQ7]   Warmup   : 4s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #2 ==========
+[MQ135]  Raw ADC  : 176 / 4095
+[MQ135]  GPIO V   : 0.142 V
+[MQ135]  AOUT V   : 0.213 V
+[MQ135]  Rs       : 22.47 kΩ
+[MQ135]  Rs/R0    : 17.6962
+─────────────────────────────────
+[MQ135]  CO2      : 0.0 ppm
+[MQ135]  CO       : 0.0 ppm
+[MQ135]  NH3      : 0.1 ppm
+[MQ135]  Alcohol  : 0.0 ppm
+[MQ135]  Benzene  : 0.0 ppm
+[MQ135]  Smoke    : 0.0 ppm
+[MQ135]  Warmup   : 4s / 300s
+=================================
+
+========== Reading #2 ==========
+[DHT22]  ERROR: Timeout — no response from sensor
+=================================
+
+========== Reading #3 ==========
+[BMP280]  Temp     : 0.00 C
+[BMP280]  Pressure : 1056.49 hPa
+[BMP280]  Altitude : 17.0 m
+=================================
+
+========== Reading #3 ==========
+[MQ7]   Raw ADC  : 176 / 4095
+[MQ7]   GPIO V   : 0.142 V
+[MQ7]   AOUT V   : 0.213 V
+[MQ7]   Rs       : 224.74 kΩ
+[MQ7]   Rs/R0    : 8.1724
+[MQ7]   Warmup   : 6s / 300s
+[MQ7]   !! No heater switching — values unreliable !!
+=================================
+
+========== Reading #3 ==========
+[MQ135]  Raw ADC  : 178 / 4095
+[MQ135]  GPIO V   : 0.144 V
+[MQ135]  AOUT V   : 0.216 V
+[MQ135]  Rs       : 22.15 kΩ
+[MQ135]  Rs/R0    : 17.4395
+─────────────────────────────────
+[MQ135]  CO2      : 0.0 ppm
+[MQ135]  CO       : 0.0 ppm
+[MQ135]  NH3      : 0.1 ppm
+[MQ135]  Alcohol  : 0.0 ppm
+[MQ135]  Benzene  : 0.0 ppm
+[MQ135]  Smoke    : 0.0 ppm
+[MQ135]  Warmup   : 6s / 300s
+=================================

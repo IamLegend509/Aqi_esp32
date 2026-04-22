@@ -21,6 +21,11 @@
 #include "rom/ets_sys.h"
 #include "esp_rom_gpio.h"
 
+float dht22_last_temp = 0.0f;
+float dht22_last_hum = 0.0f;
+float dht22_last_hi = 0.0f;
+char dht22_last_comfort[16] = "Unknown";
+
 /* ─── Pin ────────────────────────────────────────────────────────────────── */
 #define DHT22_PIN   GPIO_NUM_14
 
@@ -143,20 +148,31 @@ void dht22_task(void *arg)
 
         if (err == ESP_OK) {
             float hi = heat_index(temp, hum);
+            const char *comfort = "Very Humid";
+
             printf("[DHT22]  Temperature : %.1f °C\n",  temp);
             printf("[DHT22]  Humidity    : %.1f %%\n",  hum);
             if (hi != temp)
                 printf("[DHT22]  Heat Index  : %.1f °C  (feels like)\n", hi);
 
             // Comfort interpretation
-            if (hum < 30.0f)
+            if (hum < 30.0f) {
+                comfort = "Dry";
                 printf("[DHT22]  Comfort     : Dry\n");
-            else if (hum < 60.0f)
+            } else if (hum < 60.0f) {
+                comfort = "Comfortable";
                 printf("[DHT22]  Comfort     : Comfortable\n");
-            else if (hum < 70.0f)
+            } else if (hum < 70.0f) {
+                comfort = "Humid";
                 printf("[DHT22]  Comfort     : Humid\n");
-            else
+            } else {
                 printf("[DHT22]  Comfort     : Very Humid\n");
+            }
+
+            dht22_last_temp = temp;
+            dht22_last_hum = hum;
+            dht22_last_hi = hi;
+            snprintf(dht22_last_comfort, sizeof(dht22_last_comfort), "%s", comfort);
 
         } else {
             err_count++;

@@ -64,6 +64,19 @@ static const gas_curve_t SMOKE   = {  40.000f, -3.150f };  // indicative only
 static adc_cali_handle_t         cali_handle = NULL;
 static bool                      cali_ok     = false;
 
+int   mq135_last_raw = 0;
+float mq135_last_gpio_v = 0.0f;
+float mq135_last_aout_v = 0.0f;
+float mq135_last_rs = 0.0f;
+float mq135_last_ratio = 0.0f;
+float mq135_last_co2 = 0.0f;
+float mq135_last_co = 0.0f;
+float mq135_last_nh3 = 0.0f;
+float mq135_last_alc = 0.0f;
+float mq135_last_benz = 0.0f;
+float mq135_last_smoke = 0.0f;
+int   mq135_warmup_s = 0;
+
 /* ════════════════════════════════════════════════════════════════════════════
  * ADC INIT
  * ════════════════════════════════════════════════════════════════════════════ */
@@ -165,6 +178,26 @@ void mq135_task(void *arg)
 
         float rs_r0 = rs / R0_KOHM;
         int   raw   = (int)(vgpio / 3.3f * 4095.0f);
+        float co2 = get_ppm(CO2, rs_r0);
+        float co = get_ppm(CO, rs_r0);
+        float nh3 = get_ppm(NH3, rs_r0);
+        float alcohol = get_ppm(ALCOHOL, rs_r0);
+        float benzene = get_ppm(BENZENE, rs_r0);
+        float smoke = get_ppm(SMOKE, rs_r0);
+        int warmup_s = count * 2;
+
+        mq135_last_raw = raw;
+        mq135_last_gpio_v = vgpio;
+        mq135_last_aout_v = vaout;
+        mq135_last_rs = rs;
+        mq135_last_ratio = rs_r0;
+        mq135_last_co2 = co2;
+        mq135_last_co = co;
+        mq135_last_nh3 = nh3;
+        mq135_last_alc = alcohol;
+        mq135_last_benz = benzene;
+        mq135_last_smoke = smoke;
+        mq135_warmup_s = warmup_s;
 
         printf("\n========== Reading #%d ==========\n", count);
         printf("[MQ135]  Raw ADC  : %d / 4095\n",  raw);
@@ -173,15 +206,15 @@ void mq135_task(void *arg)
         printf("[MQ135]  Rs       : %.2f kΩ\n",     rs);
         printf("[MQ135]  Rs/R0    : %.4f\n",          rs_r0);
         printf("─────────────────────────────────\n");
-        printf("[MQ135]  CO2      : %.1f ppm\n",    get_ppm(CO2,     rs_r0));
-        printf("[MQ135]  CO       : %.1f ppm\n",    get_ppm(CO,      rs_r0));
-        printf("[MQ135]  NH3      : %.1f ppm\n",    get_ppm(NH3,     rs_r0));
-        printf("[MQ135]  Alcohol  : %.1f ppm\n",    get_ppm(ALCOHOL, rs_r0));
-        printf("[MQ135]  Benzene  : %.1f ppm\n",    get_ppm(BENZENE, rs_r0));
-        printf("[MQ135]  Smoke    : %.1f ppm\n",    get_ppm(SMOKE,   rs_r0));
+        printf("[MQ135]  CO2      : %.1f ppm\n",    co2);
+        printf("[MQ135]  CO       : %.1f ppm\n",    co);
+        printf("[MQ135]  NH3      : %.1f ppm\n",    nh3);
+        printf("[MQ135]  Alcohol  : %.1f ppm\n",    alcohol);
+        printf("[MQ135]  Benzene  : %.1f ppm\n",    benzene);
+        printf("[MQ135]  Smoke    : %.1f ppm\n",    smoke);
 
         if (count <= 150)
-            printf("[MQ135]  Warmup   : %ds / 300s\n", count * 2);
+            printf("[MQ135]  Warmup   : %ds / 300s\n", warmup_s);
         else
             printf("[MQ135]  Warmed up — Rs/R0 in clean air should be ~1.0\n");
 
